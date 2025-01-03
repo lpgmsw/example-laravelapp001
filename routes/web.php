@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\User; 
 // hello画面への遷移
 Route::get('/hello', function () {
-    return view('hello', ['displayString' => 'hello']);
+    // ユーザ情報を取得
+    $users = User::all();
+    // 取得したユーザ情報をビューに渡す
+    return view('hello', ['displayString' => 'hello', 'users' => $users]);
 });
 // ユーザ新規登録画面への遷移
 Route::get('/createuser', function () {
