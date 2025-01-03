@@ -22,6 +22,7 @@
           <th>年齢</th>
           <th>登録日時</th>
           <th>更新日時</th>
+          <th>編集</th>
         </tr>
       </thead>
       <tbody>
@@ -34,6 +35,7 @@
             <td>{{ $user->age }}</td>
             <td>{{ $user->created_at }}</td>
             <td>{{ $user->updated_at }}</td>
+            <td><button onclick="window.location.href='/edituser/{{ $user->user_id }}'">編集</button></td>
           </tr>
         @empty
           <tr>
