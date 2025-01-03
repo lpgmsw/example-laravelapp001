@@ -23,6 +23,7 @@
           <th>登録日時</th>
           <th>更新日時</th>
           <th>編集</th>
+          <th>削除</th>
         </tr>
       </thead>
       <tbody>
@@ -36,6 +37,12 @@
             <td>{{ $user->created_at }}</td>
             <td>{{ $user->updated_at }}</td>
             <td><button onclick="window.location.href='/edituser/{{ $user->user_id }}'">編集</button></td>
+            <td>
+              <form action="/deleteuser/{{ $user->user_id }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+                @csrf
+                <button type="submit">削除</button>
+              </form>
+            </td>
           </tr>
         @empty
           <tr>
