@@ -66,3 +66,12 @@ Route::post('/updateuser/{id}', function (Request $request, $id) {
     // hello画面へリダイレクト
     return redirect('/hello');
 });
+
+// ユーザ削除処理
+Route::post('/deleteuser/{id}', function ($id) {
+    $user = User::findOrFail($id);
+    $user->delete();
+
+    // hello画面へリダイレクト
+    return redirect('/hello');
+});
