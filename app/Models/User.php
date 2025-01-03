@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
-
+    // 主キーを指定
+    protected $primaryKey = 'user_id';
     protected $fillable = [
         'userName',
         'userNickname',
